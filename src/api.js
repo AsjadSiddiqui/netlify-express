@@ -10,6 +10,12 @@ router.get("/", (req, res) => {
   });
 });
 
+
+router.get("/api/:varOne/:varTwo/", (req, res) => {
+  res.json(req.params);
+});
+
+
 app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;
