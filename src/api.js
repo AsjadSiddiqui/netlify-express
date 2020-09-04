@@ -84,7 +84,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:varOne/:varTwo/", (req, res) => {
+router.get("/test/:varOne/:varTwo/", (req, res) => {
   res.json(req.params);
 });
 
