@@ -23,10 +23,10 @@ router.get("/api/get/", (req, res) => {
     path: '/todos/1',
     method: 'GET'
   }
-  const req = https.request(options, res => {
-    console.log(`statusCode: ${res.statusCode}`)
+  const req = https.request(options, resT => {
+    console.log(`statusCode: ${resT.statusCode}`)
 
-    res.on('data', d => {
+    resT.on('data', d => {
       res.send(d);
     })
   })
