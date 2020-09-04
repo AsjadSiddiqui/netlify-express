@@ -1,5 +1,6 @@
 const express = require("express");
 const serverless = require("serverless-http");
+const https = require('https');
 
 const app = express();
 const router = express.Router();
@@ -13,6 +14,24 @@ router.get("/", (req, res) => {
 
 router.get("/api/:varOne/:varTwo/", (req, res) => {
   res.json(req.params);
+});
+
+router.get("/api/get/", (req, res) => {
+  options = {
+    hostname: 'https://jsonplaceholder.typicode.com',
+    // port: 443,
+    path: '/todos/1',
+    method: 'GET'
+  }
+  const req = https.request(options, res => {
+    console.log(`statusCode: ${res.statusCode}`)
+
+    res.on('data', d => {
+      res.send(d);
+    })
+  })
+
+  
 });
 
 
