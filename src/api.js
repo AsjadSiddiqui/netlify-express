@@ -16,23 +16,7 @@ router.get("/api/:varOne/:varTwo/", (req, res) => {
   res.json(req.params);
 });
 
-router.get("/api/get/", (req, res) => {
-  options = {
-    hostname: 'https://jsonplaceholder.typicode.com',
-    // port: 443,
-    path: '/todos/1',
-    method: 'GET'
-  }
-  const req = https.request(options, resT => {
-    console.log(`statusCode: ${resT.statusCode}`)
 
-    resT.on('data', d => {
-      res.send(d);
-    })
-  })
-
-  
-});
 
 
 app.use(`/.netlify/functions/api`, router);
